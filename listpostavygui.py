@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import Entry
 
-
 mody = [-1, +1, +2, +3]
 sila4 = 0
 obratnost = 0
@@ -23,13 +22,14 @@ jmeno1: Entry = tk.Entry(root, width=30)
 jmeno1.pack(pady=30)
 sigma = tk.Label(root, text="")
 sigma.place(x=520, y=170)
-
-tlacitm1 = tk.Button(root, text="-1", command=modm1)
-tlacitm1.place(x=450, y=200)
-tlacitm1.place.forget()
-
-def modm1():
+def skib():
     sigma.config(text="jaký modifikátor si dáš na obratnost:")
+
+tlacitm1 = tk.Button(root, text="-1", command=skib)
+tlacitm1.place(x=450, y=200)
+tlacitm1.place_forget()
+
+
 
 
 def kontrola():
@@ -86,15 +86,11 @@ def modifikatory():
                           "obratnost - koordinace pohybu, rychlost, motorika\n"
                           "bystrost - smyslové vnímaní, inteligence a příčetnost \n"
                           "osobnost - Charisma, empatie a schopnost manipulovat s lidmi\n")
-     sigma.config(text="jaký modifikátor si dáš na sílu: ")
+    sigma.config(text="jaký modifikátor si dáš na sílu: ")
 
-    tlacitm1 = tk.Button(root, text="-1", command=modm1)
+    tlacitm1 = tk.Button(root, text="-1", command=skib)
     tlacitm1.place(x=450, y=200)
     return tlacitm1
-
-def modm1():
-    sigma.config(text="jaký modifikátor si dáš na obratnost:")
-
 
 
 jan = tk.Button(root, text="zadat jmeno", command=kontrola)

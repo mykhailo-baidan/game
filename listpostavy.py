@@ -7,16 +7,129 @@ dovednosti = ['svaly', 'výdrž', 'boj z blízka', 'obratnost', 'plížení', '�
               'empatie', 'zastrašování', 'přesvědčování', 'humor']
 siladovednosti = ['svaly', 'výdrž', 'boj z blízka']
 obrdovednosti = ['obratnost', 'plížení', 'čachry']
-bystrdovednosti = ['vnímání', 'pátrání','empatie']
+bystrdovednosti = ['vnímání', 'pátrání', 'empatie']
 osobdovednosti = ['zastrašování', 'přesvědčování', 'humor']
-
+povolani12 = []
 zdatnosti = []
+hp = 10
 
+
+def start():
+    print("-----LIST POSTAVY--------")
+    modifikatory()
+
+def povolani():
+    print("vyber si vybrat jedno z těchto typu(povolaní) \n"
+          "----------------------------------------\n"
+          "zadej 1 jestli si chceš vybrat - TICHÝ KID|+1 na obratnost|dovednost střelba\n"
+          "zadej 2 jestli si chceš vybrat - GYM - BRO|+1 na sílu|dovednost svaly\n"
+          "zadej 3 jestli si chceš vybrat - EMO KID|+1 na bystrost|dovednost nenápadnost\n"
+          "zadej 4 jestli si chceš vybrat - ŠÁŠA KID|+1 na osobnost|dovednost humor\n"
+          "zadej 5 jestli si chceš vybrat - GAY KID|+1 na sílu|dovednost boj z blízka\n"
+          "zadej 6 jestli si chceš vybrat - FOTBAL KID|+1 na obratnost|dovednost výdrž\n"
+          "zadej 7 jestli si chceš vybrat - NERD |+1 na bystrost|dovednost čachry\n"
+          "zadej 8 jestli si chceš vybrat - KŘESŤAN|+1 na bystrost|dovednost pátrání\n"
+          "zadej 9 jestli si chceš vybrat - SIMP |+1 na osobnost|dovednost přesvědčování\n")
+    volba1 = input("Co si vybereš?")
+    if volba1 == "1":
+        print("vybral sis povolání TICHÝ KID")
+        povolani12.append("tichý kid")
+        global obratnost
+        obratnost = obratnost+1
+        pozice = dovednosti.index('střelba')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "2":
+        print("vybral sis povolání GYM BRO")
+        povolani12.append("gym bro ")
+        global sila4
+        sila4 = sila4+1
+        pozice = dovednosti.index('svaly')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "3":
+        print("vybral sis povolání EMO KID")
+        global bystrost
+        bystrost = bystrost+1
+        pozice = dovednosti.index('nenápadnost')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "4":
+        print("vybral sis povolání ŠÁŠA KID")
+        global osobnost
+        osobnost = osobnost+1
+        pozice = dovednosti.index('humor')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "5":
+        print("vybral sis povolání GAY KID")
+
+        sila4 = sila4+1
+        pozice = dovednosti.index('boj z blízka')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "6":
+        print("vybral sis povolání FOTBAL KID")
+
+        obratnost = obratnost+1
+        pozice = dovednosti.index('výdrž')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "7":
+        print("vybral sis povolání NERD")
+
+        bystrost = bystrost+1
+        pozice = dovednosti.index('čachry')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "8":
+        print("vybral sis povolání KŘESŤAN ")
+
+        bystrost = bystrost+1
+        pozice = dovednosti.index('pátrání')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+    elif volba1 == "9":
+        print("vybral sis povolání SIMP")
+
+        osobnost = osobnost+1
+        pozice = dovednosti.index('přesvědčování')
+        prvek = dovednosti[pozice]
+        del dovednosti[pozice]
+        zdatnosti.append(prvek)
+        dovednosti1()
+
+    else:
+        odznova3()
+
+
+def odznova3():
+    print("Tuto variantu jste neměli na výběr\n")
+    povolani()
 
 def jmeno1():
-    print("list postavy")
     jmeno = input("jak se jmenuješ ")
-    modifikatory()
+
+    print(
+        f"jmenuješ se {jmeno}\n"
+        f" máš {hp} životu tvoje modifikátory jsou {sila4} pro sílu, {obratnost} pro obratnost, {bystrost} pro bystrost a {osobnost} pro osobnost\n"
+        f" a máš zdatnost v: {zdatnosti}")
 
 
 def modifikatory():
@@ -79,7 +192,7 @@ def osob():
         osobnost = osobnost + osob1
         mody.remove(osob1)
         print(f"tvoje osobnost je od ted {osobnost}")
-        dovednosti1()
+        povolani()
     else:
         print("tento modifikátor jste neměli na výběr nebo jste ho už použili na jinou vlastnost")
         osob()
@@ -117,16 +230,9 @@ def dovednost1():
         del dovednosti[pozice]
         zdatnosti.append(prvek)
 
-        dovednosti88 = input(f"vybíráte si dovednost {prvnidovednost}? \n"
-                             f"jste si jistí(ano/ne)?   ")
-        if dovednosti88 == "ano":
-            dovednost2()
+        print(f"vybíráte si dovednost {prvnidovednost}. \n")
+        dovednost2()
 
-        elif dovednosti88 == "ne":
-            dovednost1()
-        else:
-            odznova2()
-            dovednost1()
     else:
         odznova2()
         dovednost1()
@@ -141,16 +247,10 @@ def dovednost2():
         del dovednosti[pozice2]
         zdatnosti.append(prvek2)
 
-        dovednosti88 = input(f"vybíráte si dovednost {druhadovednost}? \n"
-                             f"jste si jistí(ano/ne)?   ")
-        if dovednosti88 == "ano":
-            dovednost3()
+        print(f"vybíráte si dovednost {druhadovednost}.")
 
-        elif dovednosti88 == "ne":
-            dovednost2()
-        else:
-            odznova2()
-            dovednost2()
+        dovednost3()
+
     else:
         odznova2()
         dovednost2()
@@ -165,16 +265,10 @@ def dovednost3():
         del dovednosti[pozice3]
         zdatnosti.append(prvek3)
 
-        dovednosti88 = input(f"vybíráte si dovednost {tretidovednost}? \n"
-                             f"jste si jistí(ano/ne)?   ")
-        if dovednosti88 == "ano":
-            dovednost4()
+        print(f"vybíráte si dovednost {tretidovednost}.")
 
-        elif dovednosti88 == "ne":
-            dovednost3()
-        else:
-            odznova2()
-            dovednost3()
+        dovednost4()
+
     else:
         odznova2()
         dovednost3()
@@ -189,25 +283,24 @@ def dovednost4():
         del dovednosti[pozice3]
         zdatnosti.append(prvek3)
 
-        dovednosti88 = input(f"vybíráte si dovednost {ctvrtadovednost}? \n"
-                             f"jste si jistí(ano/ne)?   ")
-        if dovednosti88 == "ano":
-            zdatnosti1()
+        print(f"vybíráte si dovednost {ctvrtadovednost}. ")
 
-        elif dovednosti88 == "ne":
-            dovednost4()
-        else:
-            odznova2()
-            dovednost4()
+        zivoty()
+
     else:
         odznova2()
         dovednost4()
 
 
-def zdatnosti1():
-    print("tvoje zdatnosti jsou:")
-    print(zdatnosti)
-    print("")
+def zivoty():
+    if zdatnosti.__contains__("výdrž"):
+        global hp
+        hp = hp + 2
+        print("máš 12 životů")
+        jmeno1()
+    else:
+        print("máš 10 životů")
+        jmeno1()
 
 
 def carecky():
@@ -219,4 +312,4 @@ def odznova2():
     print("Tuto možnost jste bud neměli na výběr nebo už jste si zvolili \nzačni od znova")
 
 
-jmeno1()
+start()

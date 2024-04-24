@@ -1,7 +1,5 @@
 import random
 
-skrin = 1
-
 
 def hodk20():
     return random.randint(1, 20)
@@ -20,10 +18,5 @@ def main():
             skrin = skrin - 1
         else:
             print("mas smulu")
-
-        play_again = input("R: ")
-        if play_again != "y":
-            break
-
 
 main()
